@@ -1,0 +1,45 @@
+[Description]
+Skin=Tragedy Theme v1.0
+Author=RobH - robh@nxt.ru
+Email=robh@nxt.ru
+icon=/icon.png
+
+[Border]
+red=71
+green=71
+blue=71
+width=2
+
+[Text]
+x=45
+y=12
+red=160
+green=160
+blue=160
+text=Terminal Emulator
+
+[Background]
+back_image=/title/back.png
+left_corner=/title/left.png
+right_corner=/title/right.png
+
+[FocusButton]
+x=70
+y=2
+up_image=/title/focus_up.png
+over_image=/title/focus_over.png
+down_image=/title/focus_down.png
+
+[ConfigButton]
+x=52
+y=2
+up_image=/title/config_up.png
+over_image=/title/config_over.png
+down_image=/title/config_down.png
+
+[QuitButton]
+x=34
+y=2
+up_image=/title/quit_up.png
+over_image=/title/quit_over.png
+down_image=/title/quit_down.png

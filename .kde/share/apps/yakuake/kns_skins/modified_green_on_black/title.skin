@@ -1,0 +1,15 @@
+[Description]
+Skin=Green on Black
+Author=Felix Hummel, Roman Drogolov
+
+[Border]
+red=0
+green=0
+blue=0
+width=0
+
+[Background]
+back_image=/title/back.png
+left_corner=/title/left.png
+right_corner=/title/right.png
+

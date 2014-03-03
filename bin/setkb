@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ $# -eq 0 ];then
+echo "you need arguments"
+elif [ $# -eq 1 ]; then
+setxkbmap -layout $1
+notify-send "Keyboard MSG" "keyboard changed to $1" -u low -i ~/Dropbox/design/silgon/logo/logo.png
+elif [ $# -eq 2 ]; then
+setxkbmap -layout $1 -variant $2
+notify-send "Keyboard MSG" "keyboard changed to $1 - $2" -u low -i ~/Dropbox/design/silgon/logo/logo.png
+fi

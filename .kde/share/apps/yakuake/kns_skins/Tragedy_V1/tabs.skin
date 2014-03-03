@@ -1,0 +1,37 @@
+[Description]
+Skin=Tragedy Theme v1.0
+Author=RobH - robh@nxt.ru
+Email=robh@nxt.ru
+Icon=/icon.png
+
+
+[Tabs]
+x=35
+y=3
+red=160
+green=160
+blue=160
+separator_image=/tabs/separator.png
+selected_background=/tabs/selected_back.png
+selected_left_corner=/tabs/selected_left.png
+selected_right_corner=/tabs/selected_right.png
+unselected_background=/tabs/unselected_back.png
+
+[Background]
+back_image=/tabs/back_image.png
+left_corner=/tabs/left_corner.png
+right_corner=/tabs/right_corner.png
+
+[PlusButton]
+x=17
+y=5
+up_image=/tabs/plus_up.png
+over_image=/tabs/plus_over.png
+down_image=/tabs/plus_down.png
+
+[MinusButton]
+x=32
+y=5
+up_image=/tabs/minus_up.png
+over_image=/tabs/minus_over.png
+down_image=/tabs/minus_down.png
