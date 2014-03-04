@@ -1,6 +1,6 @@
 #!/bin/bash
 # delete default files
-rm ~/.bashrc ~/.profile
+rm ~/.bashrc ~/.profile ~/.octaverc ~/.screenrc
 # save current directory and go to home
 DIR=`pwd`
 cd ~
