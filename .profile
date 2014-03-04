@@ -20,3 +20,8 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# set PATH so it includes user's git bin
+if [ -d "$BASH_PATH/bin" ] ; then
+    PATH="$BASH_PATH/bin:$PATH"
+fi

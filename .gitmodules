@@ -1,0 +1,3 @@
+[submodule "priv_conf"]
+	path = priv_conf
+	url = git@bitbucket.org:omarislas/priv_conf.git

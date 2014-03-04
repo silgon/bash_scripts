@@ -1,112 +1,23 @@
-##################################
-########### Default ##############
-##################################
+# Path of the project
+BASH_PATH=$HOME/.silgon
+# My logo for the display in alerts
+MY_LOGO=$HOME/.silgon/img/silgon_white_logo.png
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+# modified default configuration (.bashrc) of ubuntu (like ls, grep, color and more)
+if [ -f $BASH_PATH/ubuntu_default.sh ]; then
+	source $BASH_PATH/ubuntu_default.sh; fi
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+# other commands
+if [ -f $BASH_PATH/env.sh ]; then
+	source $BASH_PATH/env.sh; fi
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+## from here on it's in a private repository
+# some private commands
+if [ -f $BASH_PATH/priv_conf/commands.sh ]; then
+	source $BASH_PATH/priv_conf/commands.sh; fi
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-####################################
-############ Silgon ################
-####################################
-PS1='\[\e[1;32m\]\u@\h: \w$\[\e[0m\] '
-
-# code to load this file
-# if [ -f ~/Dropbox/programming/linux/.bashrc ]; then
-# source ~/Dropbox/programming/linux/.bashrc
-# fi
-
-alias o="xdg-open"
-
-#alias sdcc="sdcc-sdcc"
-alias finished='notify-send FINISHED "your long process has finished" -u critical -i ~/Dropbox/design/silgon/logo/logo.png'
-
-#Default Variables
-export WHP="eccolepa@pynoz.com:~/" #server webhostingpad
-export GDD="silgon@silgon.co:~/" #server godadday
-export POLAR="148.234.13.180"
-
-#SSH default connections
-alias whpssh="ssh eccolepa@eccoleparty.com"
-alias polarssh="ssh silgon@148.234.13.180"
-alias gddssh="ssh silgon@silgon.co"
-
-#my functions
-alias mydiary='vi ~/Dropbox/diary/`date +%Y-%m-%d`'
-
-# seek forward
-stty -ixon
-
-#opencv
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+# config of the servers I use
+if [ -f $BASH_PATH/priv_conf/servers.sh ]; then
+	source $BASH_PATH/priv_conf/servers.sh; fi
