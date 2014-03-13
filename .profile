@@ -25,3 +25,9 @@ fi
 if [ -d "$BASH_PATH/bin" ] ; then
     PATH="$BASH_PATH/bin:$PATH"
 fi
+
+# ibus
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+export XIM_PROGRAM=/usr/bin/ibus-daemon
