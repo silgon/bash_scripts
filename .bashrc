@@ -12,6 +12,10 @@ if [ -f $BASH_PATH/ubuntu_default.sh ]; then
 if [ -f $BASH_PATH/env.sh ]; then
 	source $BASH_PATH/env.sh; fi
 
+# morse
+if [ -f $BASH_PATH/morse/rc.sh ]; then
+	source $BASH_PATH/morse/rc.sh; fi
+
 
 ## from here on it's in a private repository
 # some private commands

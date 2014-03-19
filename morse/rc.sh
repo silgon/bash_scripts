@@ -1,0 +1,1 @@
+export MORSE_BLENDER=~/tmp/blender-2.69/blender
