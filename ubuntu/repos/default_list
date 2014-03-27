@@ -5,6 +5,7 @@ sudo apt-add-repository ppa:jonoomph/openshot-edge
 sudo apt-add-repository ppa:xubuntu-dev/xfce-4
 sudo apt-add-repository ppa:jtaylor/ipython
 sudo apt-add-repository ppa:libreoffice/ppa
+sudo apt-add-repository ppa:marutter/rrutter
 sudo apt-add-repository ppa:octave/stable
 sudo apt-add-repository ppa:mozillateam/firefox-next
 sudo apt-add-repository ppa:irie/blender
