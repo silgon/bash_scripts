@@ -17,6 +17,10 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f "$HOME/.bashrc" ]; then
 	. "$HOME/.bashrc"
     fi
+    # .bashrc2 is for particular configurations of each computer
+    if [ -f "$HOME/.bashrc2" ]; then
+        . "$HOME/.bashrc2"
+    fi
 fi
 
 # set PATH so it includes user's private bin if it exists

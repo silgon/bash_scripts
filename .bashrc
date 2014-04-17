@@ -25,3 +25,8 @@ if [ -f $BASH_PATH/priv_conf/commands.sh ]; then
 # config of the servers I use
 if [ -f $BASH_PATH/priv_conf/servers.sh ]; then
 	source $BASH_PATH/priv_conf/servers.sh; fi
+
+
+# functions
+if [ -f $BASH_PATH/functions/sn-functions ]; then
+        source $BASH_PATH/functions/sn-functions; fi
