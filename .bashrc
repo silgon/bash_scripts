@@ -30,3 +30,9 @@ if [ -f $BASH_PATH/priv_conf/servers.sh ]; then
 # functions
 if [ -f $BASH_PATH/functions/sn-functions ]; then
         source $BASH_PATH/functions/sn-functions; fi
+
+# .bashrc2 is for particular configurations of each computer
+if [ -f "$HOME/.bashrc2" ]; then
+	. "$HOME/.bashrc2"
+fi
+
