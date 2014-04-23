@@ -1,7 +1,7 @@
 # Path of the project
-BASH_PATH=$HOME/.silgon
+BASH_PATH=$HOME/.bash_scripts
 # My logo for the display in alerts
-MY_LOGO=$HOME/.silgon/img/silgon_white_logo.png
+MY_LOGO=$HOME/.bash_scripts/img/silgon_white_logo.png
 
 
 # modified default configuration (.bashrc) of ubuntu (like ls, grep, color and more)

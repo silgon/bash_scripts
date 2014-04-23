@@ -9,7 +9,7 @@
 #umask 022
 
 # Path of the project
-BASH_PATH=$HOME/.silgon
+BASH_PATH=$HOME/.bash_scripts
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
