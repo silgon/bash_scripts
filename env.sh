@@ -4,9 +4,9 @@ PS1='\[\e[1;32m\]\u@\h: \w$\[\e[0m\] '
 # seek forward
 stty -ixon
 
-# open
-alias o="xdg-open"
-
+# aliases
+alias o="xdg-open" # open
+alias md="mkdir" 
 # alias sdcc="sdcc-sdcc"
 alias finished='notify-send FINISHED "your long process has finished" -u critical -i $MY_LOGO'
 

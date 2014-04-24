@@ -1,0 +1,11 @@
+[user]
+	email = silgon3200@gmail.com
+	name = silgon
+[color]
+	ui = true
+	status = auto
+	branch = auto
+[core]
+	editor = nano
+[push]
+	default = simple

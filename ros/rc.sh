@@ -34,6 +34,6 @@ function use_ros_distro_special {
 }
 
 
-alias master_pr2="export ROS_MASTER_URI=http://pr2-c1:11311"
+alias master_pr2="export ROS_MASTER_URI=http://pr2-c1:11311;"
 alias master_sim="export ROS_MASTER_URI=http://localhost:11311"
 alias master_none="unset ROS_MASTER_URI"
