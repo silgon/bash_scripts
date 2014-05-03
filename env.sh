@@ -13,20 +13,18 @@ alias finished='notify-send FINISHED "your long process has finished" -u critica
 # opencv
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
+# history for multiple terminal programs such as yakuake, tmux, terminator, etc
 
-# To be changed for a better use
-if [ -f ~/catkin_ws/devel/setup.sh ]; then
-	source /opt/ros/groovy/setup.bash
-    source ~/catkin_ws/devel/setup.sh
-elif [ -f /opt/ros/groovy/setup.bash ]; then
-	source /opt/ros/groovy/setup.bash
-fi
 
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:~/ros_ws:~/m2_stage:~/hri
-export ROBOT=sim
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups  
+# append history entries..
+shopt -s histappend
 
-if [ -f ~/Dropbox/programming/linux/.bashrc ]; then
-    source ~/Dropbox/programming/linux/.bashrc
-fi
+# After each command, save and reload history
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+
 export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3:/usr/local/lib/python3/dist-packages
+
 alias tf='cd /var/tmp && rosrun tf view_frames && evince frames.pdf &'
