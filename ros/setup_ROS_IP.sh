@@ -9,6 +9,6 @@ case "$HOSTNAME" in
 		;;
     # for everything else assume eth0 exist! modify or create a new case in any other case, for example for wlan0
 	*)	
-		export ROS_IP=`ifconfig eth0 | grep 'inet addr' | awk -F: '{print $2}' | awk '{print $1}'`
+		export ROS_IP=`ifconfig eth0 | grep 'inet ad' | awk -F: '{print $2}' | awk '{print $1}'`
 		;;
 esac

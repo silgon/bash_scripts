@@ -13,6 +13,8 @@
 
 ##### setting up ros distro by checking ws in this order: rosbuild_ws -> catkin_ws -> distro
 
+distro_found=true
+
 # checking if asked ros distro is installed
 if [ -r /opt/ros/$1/setup.bash ]; then
 
@@ -60,4 +62,11 @@ if [ -r /opt/ros/$1/setup.bash ]; then
 # report when ros distro is not found
 else
     echor "error: ros $1 setup.bash not found at /opt/ros/$1/"
+    distro_found=false
 fi
+
+# also setup ROS_IP if ros distro is found
+if [ distro_found ]; then
+	source ${HOME}/.bash_scripts/ros/setup_ROS_IP.sh
+fi
+unset distro_found
