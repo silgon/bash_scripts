@@ -14,8 +14,6 @@ alias finished='notify-send FINISHED "your long process has finished" -u critica
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 # history for multiple terminal programs such as yakuake, tmux, terminator, etc
-
-
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups  
 # append history entries..
