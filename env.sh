@@ -28,6 +28,6 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 
-export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3:/usr/local/lib/python3/dist-packages
+# export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3:/usr/local/lib/python3/dist-packages
 
 alias tf='cd /var/tmp && rosrun tf view_frames && evince frames.pdf &'
