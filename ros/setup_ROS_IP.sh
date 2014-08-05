@@ -11,5 +11,6 @@ case "$HOSTNAME" in
 	*)	
 		export ROS_IP=`int-ip eth0`
         if [ -z "$ROS_IP" ]; then ROS_IP=`int-ip wlan0`; fi
+        if [ -z "$ROS_IP" ]; then unset ROS_IP; fi
 		;;
 esac

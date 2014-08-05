@@ -12,6 +12,10 @@ function use_hydro {
     use_ros_distro_special hydro $1 $2 $3
 }
 
+function use_indigo {
+    use_ros_distro_special indigo $1 $2 $3
+}
+
 function use_ros_distro_special {
     # workaround as loading groovy and hydro  messes up with python2
     export PYTHONPATH_BK=$PYTHONPATH
