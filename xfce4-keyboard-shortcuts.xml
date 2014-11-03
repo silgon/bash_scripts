@@ -16,15 +16,22 @@
       <property name="&lt;Primary&gt;Escape" type="empty"/>
       <property name="XF86WWW" type="empty"/>
       <property name="XF86Mail" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Escape" type="empty"/>
       <property name="Print" type="empty"/>
       <property name="&lt;Alt&gt;Print" type="empty"/>
+      <property name="XF86HomePage" type="empty"/>
       <property name="&lt;Super&gt;w" type="empty"/>
       <property name="&lt;Super&gt;m" type="empty"/>
+      <property name="XF86Explorer" type="empty"/>
       <property name="&lt;Super&gt;f" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="empty"/>
       <property name="&lt;Super&gt;t" type="empty"/>
       <property name="&lt;Super&gt;r" type="empty"/>
       <property name="&lt;Super&gt;e" type="empty"/>
+      <property name="XF86Calculator" type="empty"/>
+      <property name="XF86Music" type="empty"/>
       <property name="&lt;Super&gt;1" type="empty"/>
+      <property name="XF86Messenger" type="empty"/>
       <property name="&lt;Super&gt;2" type="empty"/>
       <property name="&lt;Super&gt;3" type="empty"/>
       <property name="&lt;Super&gt;4" type="empty"/>
@@ -47,13 +54,13 @@
       <property name="&lt;Super&gt;1" type="string" value="google-chrome"/>
       <property name="&lt;Super&gt;2" type="string" value="firefox"/>
       <property name="&lt;Super&gt;3" type="string" value="thunderbird"/>
-      <property name="&lt;Primary&gt;&lt;Alt&gt;h" type="string" value="yakuake"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="string" value="xflock4"/>
-      <property name="&lt;Super&gt;h" type="string" value="yakuake"/>
       <property name="&lt;Super&gt;F1" type="string" value="setkb es dvorak"/>
       <property name="&lt;Super&gt;F2" type="string" value="setkb us"/>
       <property name="&lt;Super&gt;F3" type="string" value="setkb fr"/>
       <property name="&lt;Alt&gt;F2" type="string" value="synapse"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;h" type="string" value="guake"/>
+      <property name="&lt;Super&gt;h" type="string" value="guake"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
@@ -67,8 +74,8 @@
       <property name="&lt;Alt&gt;Tab" type="empty"/>
       <property name="&lt;Alt&gt;&lt;Shift&gt;Tab" type="empty"/>
       <property name="&lt;Alt&gt;Delete" type="empty"/>
-      <property name="&lt;Control&gt;&lt;Alt&gt;Down" type="empty"/>
-      <property name="&lt;Control&gt;&lt;Alt&gt;Left" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Down" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Left" type="empty"/>
       <property name="&lt;Shift&gt;&lt;Alt&gt;Page_Down" type="empty"/>
       <property name="&lt;Alt&gt;F4" type="empty"/>
       <property name="&lt;Alt&gt;F6" type="empty"/>
@@ -78,6 +85,41 @@
       <property name="&lt;Alt&gt;F10" type="empty"/>
       <property name="&lt;Alt&gt;F11" type="empty"/>
       <property name="&lt;Alt&gt;F12" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;Left" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;End" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Home" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;Right" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;Up" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_1" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_2" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_3" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_4" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_5" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_6" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_7" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_8" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;KP_9" type="empty"/>
+      <property name="&lt;Alt&gt;space" type="empty"/>
+      <property name="&lt;Shift&gt;&lt;Alt&gt;Page_Up" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Right" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;d" type="empty"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;Up" type="empty"/>
+      <property name="&lt;Super&gt;Tab" type="empty"/>
+      <property name="&lt;Primary&gt;F1" type="empty"/>
+      <property name="&lt;Primary&gt;F2" type="empty"/>
+      <property name="&lt;Primary&gt;F3" type="empty"/>
+      <property name="&lt;Primary&gt;F4" type="empty"/>
+      <property name="&lt;Primary&gt;F5" type="empty"/>
+      <property name="&lt;Primary&gt;F6" type="empty"/>
+      <property name="&lt;Primary&gt;F7" type="empty"/>
+      <property name="&lt;Primary&gt;F8" type="empty"/>
+      <property name="&lt;Primary&gt;F9" type="empty"/>
+      <property name="&lt;Primary&gt;F10" type="empty"/>
+      <property name="&lt;Primary&gt;F11" type="empty"/>
+      <property name="&lt;Primary&gt;F12" type="empty"/>
+      <property name="&lt;Control&gt;&lt;Alt&gt;Down" type="empty"/>
+      <property name="&lt;Control&gt;&lt;Alt&gt;Left" type="empty"/>
+      <property name="&lt;Alt&gt;F5" type="empty"/>
       <property name="&lt;Control&gt;&lt;Shift&gt;&lt;Alt&gt;Left" type="empty"/>
       <property name="&lt;Alt&gt;&lt;Control&gt;End" type="empty"/>
       <property name="&lt;Alt&gt;&lt;Control&gt;Home" type="empty"/>
@@ -92,12 +134,9 @@
       <property name="&lt;Alt&gt;&lt;Control&gt;KP_7" type="empty"/>
       <property name="&lt;Alt&gt;&lt;Control&gt;KP_8" type="empty"/>
       <property name="&lt;Alt&gt;&lt;Control&gt;KP_9" type="empty"/>
-      <property name="&lt;Alt&gt;space" type="empty"/>
-      <property name="&lt;Shift&gt;&lt;Alt&gt;Page_Up" type="empty"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Right" type="empty"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;d" type="empty"/>
       <property name="&lt;Control&gt;&lt;Alt&gt;Up" type="empty"/>
-      <property name="&lt;Super&gt;Tab" type="empty"/>
       <property name="&lt;Control&gt;F1" type="empty"/>
       <property name="&lt;Control&gt;F2" type="empty"/>
       <property name="&lt;Control&gt;F3" type="empty"/>
@@ -110,7 +149,6 @@
       <property name="&lt;Control&gt;F10" type="empty"/>
       <property name="&lt;Control&gt;F11" type="empty"/>
       <property name="&lt;Control&gt;F12" type="empty"/>
-      <property name="&lt;Alt&gt;F5" type="empty"/>
     </property>
     <property name="custom" type="empty">
       <property name="&lt;Alt&gt;Tab" type="string" value="cycle_windows_key"/>
