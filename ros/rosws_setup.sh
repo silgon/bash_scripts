@@ -1,42 +1,40 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
+# function to get the full path on which current ws is overlayed
+function get_overlay {
+    # check if setup file exist undre current ws
+    if [ -r $1/$2/_setup_util.py ]; then
+        # get the full overlay path and echo it
+        STRING=`grep -w "CMAKE_PREFIX_PATH = " $1/$2/_setup_util.py`
+        NEWSTRING=${STRING:36:-11}
+        echog "$2 -> ${NEWSTRING}"
+    fi
+
+    # cleaning up
+    unset STRING
+    unset NEWSTRING
+}
+
+# get full path where the ws are stored
 DISTRO_DIR=${HOME}/ros/$1
 
 if [ -r ${DISTRO_DIR} ] ; then
 
     # find workspace directories
-    WS_DIRS=`ls -l $DISTRO_DIR | egrep '^d' | awk '{print $9}'`
-
-    # and now loop through the directories to find install and devel spaces
-    i=0
-    echo "following workspace directoreis found:"
-    for WS_DIR in ${WS_DIRS}
+    for WS_DIR in ${DISTRO_DIR}/*
     do
-	echo "    ${WS_DIR}"
-	if [ -r ${HOME}/ros/$1/${WS_DIR}/install/_setup_util.py ]; then
-	    STRING=`grep -w "CMAKE_PREFIX_PATH = '" ${HOME}/ros/$1/${WS_DIR}/install/_setup_util.py`
-	    NEWSTRING=${STRING:36:-12}
-	    let "i += 1"
-	    WS_LIST[$i]="${WS_DIR}/install->${NEWSTRING}"
-	fi
-	if [ -r ${HOME}/ros/$1/${WS_DIR}/devel/_setup_util.py ]; then
-	    STRING=`grep -w "CMAKE_PREFIX_PATH = '" ${HOME}/ros/$1/${WS_DIR}/devel/_setup_util.py`
-	    NEWSTRING=${STRING:36:-12}
-	    let "i += 1"
-	    WS_LIST[$i]="${WS_DIR}/devel->${NEWSTRING}"
-	fi  
+        if [[ -d $WS_DIR  ]]; then
+            echob $WS_DIR
+            get_overlay $WS_DIR install
+            get_overlay $WS_DIR devel
+            echo ""
+        fi
     done
 
-    for WS in ${WS_LIST[*]}
-    do
-	echo "${WS}"
-    done
-    unset WS
-    unset WS_LIST
+    # cleaning up
+    unset DISTRO_DIR
     unset WS_DIR
-    unset WS_DIRS
-    unset STRING
-    unset NEWSTRING
+
 else
-    echo "given distro $1, not found under ${HOME}/ros"
+    echor "given distro $1, not found under ${HOME}/ros"
 fi

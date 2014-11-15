@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # call this script with the argument of distro you want to use, base setup.bash will be
 # sourced.
@@ -13,60 +13,79 @@
 
 ##### setting up ros distro by checking ws in this order: rosbuild_ws -> catkin_ws -> distro
 
+# find out ros base and install path
+#source ${BASH_PATH}/ros/ros.sh
+
 distro_found=true
 
 # checking if asked ros distro is installed
-if [ -r /opt/ros/$1/setup.bash ]; then
+if [ -r $ROS_INSTALL_PATH/$1/setup.bash ]; then
 
-    # if called without any arguments other than distro, then just use /opt/ros/distro/setup.bash
-    if [ $# == 1 ]; then
-	source /opt/ros/$1/setup.bash
-	echog "sourcing /opt/ros/$1/setup.bash"
+    # if called without any arguments other than distro, then just use $ROS_INSTALL_PATH/distro/setup.bash
+    if [ $# == 1 ]
+    then
+        source $ROS_INSTALL_PATH/$1/setup.bash
+        echog "sourcing $ROS_INSTALL_PATH/$1/setup.bash"
 
-    # 1 additional argument > look for workspaces and source setup inside them
-    elif [ $# == 2 ]; then
-	if [[ $2 == 'devel' || $2 == 'install' ]]; then
-	    if [ -r ${HOME}/ros/$1/catkin_ws/$2/setup.bash ]; then
-		source ${HOME}/ros/$1/catkin_ws/$2/setup.bash
-		echog "sourcing ${HOME}/ros/$1/catkin_ws/$2/setup.bash"
-	    else
-		echor "error: ${HOME}/ros/$1/catkin_ws/$2/setup.bash does not exist"
-	    fi
-	else
-	    if [ -r ${HOME}/ros/$1/$2_ws/devel/setup.bash ]; then
-		source ${HOME}/ros/$1/$2_ws/devel/setup.bash
-		echog "sourcing ${HOME}/ros/$1/$2_ws/devel/setup.bash"
-	    else
-		echor "error: ${HOME}/ros/$1/$2_ws/devel/setup.bash does not exist"
-	    fi
-	fi
+    # 1 additional argument -> look for workspaces and source setup inside them
+    elif [ $# == 2 ]
+    then
+        # check for special rosbuild_ws
+        if [ $2 == 'rosbuild_ws' ]; then
+            if [ -r $ROS_BASE_PATH/$1/rosbuild_ws/setup.bash ]; then
+                source $ROS_BASE_PATH/$1/rosbuild_ws/setup.bash
+                echog "sourcing $ROS_BASE_PATH/$1/rosbuild_ws/setup.bash"
+            else
+                echor "error: $ROS_BASE_PATH/$1/rosbuild_ws/setup.bash does not exist"
+            fi
+        else
+            if [ -d $ROS_BASE_PATH/$1/$2 ]
+            then
+                # prefer devel over install workspace, when not specified
+                if [ -r $ROS_BASE_PATH/$1/$2/devel/setup.bash ]; then
+                    source $ROS_BASE_PATH/$1/$2/devel/setup.bash
+                    echog "sourcing $ROS_BASE_PATH/$1/$2/devel/setup.bash"
+                elif [ -r $ROS_BASE_PATH/$1/$2/install/setup.bash ]; then
+                    source $ROS_BASE_PATH/$1/$2/install/setup.bash
+                    echog "sourcing $ROS_BASE_PATH/$1/$2/install/setup.bash"
+                else
+                    echor "error: plase first build the $ROS_BASE_PATH/$1/$2"
+                fi
+            else
+                echor "given workspace $2 does not exit under $ROS_BASE_PATH/$1"
+            fi
+        fi
 
-    # 2 additional arguments > look for workspaces and source setup inside them
+    # 2 additional arguments -> look for workspaces and source setup inside them
     elif [ $# -eq 3 ]; then
-	if [ -r ${HOME}/ros/$1/$2_ws/$3/setup.bash ]; then
-	    source ${HOME}/ros/$1/$2_ws/$3/setup.bash
-	    echog "sourcing ${HOME}/ros/$1/$2_ws/$3/setup.bash"
-	else
-	    echor "error: ${HOME}/ros/$1/$2_ws/$3/setup.bash does not exist"
-	fi
-
+        if [ -d $ROS_BASE_PATH/$1/$2 ]
+        then
+            if [ -r $ROS_BASE_PATH/$1/$2/$3/setup.bash ]; then
+                source $ROS_BASE_PATH/$1/$2/$3/setup.bash
+                echog "sourcing $ROS_BASE_PATH/$1/$2/$3/setup.bash"
+            else
+                echor "error: $ROS_BASE_PATH/$1/$2/$3/setup.bash does not exist"
+            fi
+        else
+                echor "given workspace $2 does not exit under $ROS_BASE_PATH/$1"
+        fi
     else
-	echor "error: please call use_$1 with only 1 or 2 arguments"
+        echor "error: too many arguments"
+        echo "usage: use ros distro_name workspace_name devel/install"
     fi
 
     # when we are on pr2, also source pr2 related stuff
     if [ "${ROBOT}" == "pr2" ]; then
-	source ${HOME}/.bash_scripts/ros/pr2_distro.sh $1
+        source ${BASH_PATH}/ros/pr2_distro.sh $1
     fi
-
 # report when ros distro is not found
 else
-    echor "error: ros $1 setup.bash not found at /opt/ros/$1/"
+    echor "$1 distro not found at $ROS_INSTALL_PATH/$1"
     distro_found=false
 fi
 
 # also setup ROS_IP if ros distro is found
 if [ distro_found ]; then
-	source ${HOME}/.bash_scripts/ros/setup_ROS_IP.sh
+    source ${BASH_PATH}/ros/setup_ROS_IP.sh
 fi
 unset distro_found

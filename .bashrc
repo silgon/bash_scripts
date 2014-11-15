@@ -16,8 +16,11 @@ if [ -f $BASH_PATH/env.sh ]; then
 if [ -f $BASH_PATH/morse/rc.sh ]; then
 	source $BASH_PATH/morse/rc.sh; fi
 # ros
-if [ -f $BASH_PATH/ros/rc.sh ]; then
-	source $BASH_PATH/ros/rc.sh; fi
+if [ -f $BASH_PATH/ros/ros.sh ]; then
+	source $BASH_PATH/ros/ros.sh; fi
+# use command
+if [ -f $BASH_PATH/use_command.sh ]; then
+	source $BASH_PATH/use_command.sh; fi
 
 
 ## from here on it's in a private repository

@@ -1,76 +1,84 @@
 #!/bin/bash
 
 sn-replacestr(){ #@USAGE: value to find
-if [ $# -lt 3 ] 
-then
-printf "USAGE: \$1 value to find,\$2 replace value,\$3 directory\n"
-return 0
-fi
-for i in `grep -Rl $1 $3` 
-do 
-sed -i "s/$1/$2/g" $i
-printf "%s \n" $i
-done
+    if [ $# -lt 3 ] 
+    then
+        printf "USAGE: \$1 value to find,\$2 replace value,\$3 directory\n"
+        return 0
+    fi
+    for i in `grep -Rl $1 $3` 
+    do 
+        sed -i "s/$1/$2/g" $i
+        printf "%s \n" $i
+    done
 }
 
 sn-compress(){
-if [ $# -lt 2 ]
-then
-printf "USAGE: \$1 file or directory name,\$2 gpg file\n"
-return 0
-fi
-tar cj $1 | gpg -e -r public_silgon -o $2
+    if [ $# -lt 2 ]
+    then
+        printf "USAGE: \$1 file or directory name,\$2 gpg file\n"
+        return 0
+    fi
+    tar cj $1 | gpg -e -r public_silgon -o $2
 }
 sn-ucompress(){
-if [ $# -lt 1 ]
-then
-printf "USAGE: \$1 gpg file\n"
-return 0
-fi
-gpg -d $1 | tar xj
+    if [ $# -lt 1 ]
+    then
+        printf "USAGE: \$1 gpg file\n"
+        return 0
+    fi
+    gpg -d $1 | tar xj
 }
 
 setkb(){
-if [ $# -eq 0 ];then
-echo "you need arguments"
-elif [ $# -eq 1 ]; then
-setxkbmap -layout $1
-notify-send "Keyboard MSG" "keyboard changed to $1" -u low -i ~/Dropbox/design/silgon/logo/logo.png
-elif [ $# -eq 2 ]; then
-setxkbmap -layout $1 -variant $2
-notify-send "Keyboard MSG" "keyboard changed to $1 - $2" -u low -i ~/Dropbox/design/silgon/logo/logo.png
-fi
+    if [ $# -eq 0 ];then
+        echo "you need arguments"
+    elif [ $# -eq 1 ]; then
+        setxkbmap -layout $1
+        notify-send "Keyboard MSG" "keyboard changed to $1" -u low -i ~/Dropbox/design/silgon/logo/logo.png
+    elif [ $# -eq 2 ]; then
+        setxkbmap -layout $1 -variant $2
+        notify-send "Keyboard MSG" "keyboard changed to $1 - $2" -u low -i ~/Dropbox/design/silgon/logo/logo.png
+    fi
 }
 
 # pushd, dirs and popd
 alias dr="dirs -v"
 pu(){
-pushd +$1 > /dev/null
+    pushd +$1 > /dev/null
 }
 po(){
-popd +$1 > /dev/null
+    popd +$1 > /dev/null
 }
 
 # colored echos
 echor(){
-echo -e "\e[31m$@\e[0m"
+    echo -e "\e[31m$@\e[0m"
 }
 
 echog(){
-echo -e "\e[32m$@\e[0m"
+    echo -e "\e[32m$@\e[0m"
 }
 
 echoy(){
-echo -e "\e[93m$@\e[0m"
+    echo -e "\e[93m$@\e[0m"
 }
 
 # get internal ip
 int-ip() { 
-if [ $# -eq 0 ];then
-/sbin/ifconfig |grep -B1 "inet ad" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }'; 
-else
-/sbin/ifconfig $1 | grep "inet ad" | awk -F: '{print $2}' | awk '{print $1}'; 
-fi;
+    if [ $# -eq 0 ];then
+        /sbin/ifconfig |grep -B1 "inet ad" |awk '{ if ( $1 == "inet" ) { print $2 } else if ( $2 == "Link" ) { printf "%s:" ,$1 } }' |awk -F: '{ print $1 ": " $3 }'; 
+    else
+        /sbin/ifconfig $1 | grep "inet ad" | awk -F: '{print $2}' | awk '{print $1}'; 
+    fi;
 }
 # get external ip
 ext-ip () { curl http://ipecho.net/plain; echo; }
+
+get_directories() {
+    if [ $1 -a -d $1 ]
+    then
+        local dirs=`find $1 -maxdepth 1 -mindepth 1 -type d -name '*' ! -name '.*' -printf '%f\n'`
+    fi
+    echo "${dirs[@]}"
+}
