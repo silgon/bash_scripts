@@ -26,12 +26,12 @@ if [ -f $BASH_PATH/functions/sn-functions ]; then
         source $BASH_PATH/functions/sn-functions; fi
 
 # load my private config
-BASH_PATH_PRIV=$BASH_PATH/../.bash_scripts_priv
+BASH_PATH_PRIV=$BASH_PATH/../priv_bash_scripts
 if [ -f $BASH_PATH_PRIV/env.sh ]; then
 	source $BASH_PATH_PRIV/env.sh; fi
 
 # .bashrc2 is for particular configurations of each computer
 # in the end because it can override everything else
-if [ -f "$HOME/.bashrc2" ]; then
-	. "$HOME/.bashrc2"
+if [ -f $HOME/.bashrc2 ]; then
+	. $HOME/.bashrc2
 fi
