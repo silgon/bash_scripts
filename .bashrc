@@ -1,8 +1,7 @@
 # Path of the project
-BASH_PATH=$HOME/.bash_scripts
+BASH_PATH=$(dirname `readlink -f ${BASH_SOURCE[0]}`)
 # My logo for the display in alerts
-MY_LOGO=$HOME/.bash_scripts/img/silgon_white_logo.png
-
+MY_LOGO=$BASH_PATH/img/silgon_white_logo.png
 
 # modified default configuration (.bashrc) of ubuntu (like ls, grep, color and more)
 if [ -f $BASH_PATH/ubuntu_default.sh ]; then
@@ -22,23 +21,17 @@ if [ -f $BASH_PATH/ros/ros.sh ]; then
 if [ -f $BASH_PATH/use_command.sh ]; then
 	source $BASH_PATH/use_command.sh; fi
 
-
-## from here on it's in a private repository
-# some private commands
-if [ -f $BASH_PATH/priv_conf/commands.sh ]; then
-	source $BASH_PATH/priv_conf/commands.sh; fi
-
-# config of the servers I use
-if [ -f $BASH_PATH/priv_conf/servers.sh ]; then
-	source $BASH_PATH/priv_conf/servers.sh; fi
-
-
 # functions
 if [ -f $BASH_PATH/functions/sn-functions ]; then
         source $BASH_PATH/functions/sn-functions; fi
 
+# load my private config
+BASH_PATH_PRIV=$BASH_PATH/../.bash_scripts_priv
+if [ -f $BASH_PATH_PRIV/env.sh ]; then
+	source $BASH_PATH_PRIV/env.sh; fi
+
 # .bashrc2 is for particular configurations of each computer
+# in the end because it can override everything else
 if [ -f "$HOME/.bashrc2" ]; then
 	. "$HOME/.bashrc2"
 fi
-
