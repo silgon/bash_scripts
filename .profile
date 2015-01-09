@@ -9,7 +9,9 @@
 #umask 022
 
 # Path of the project
-BASH_PATH=$HOME/.bash_scripts
+BASH_PATH=$HOME/bs/bash_scripts
+## next line is not working (god knows why)
+# BASH_PATH=$(dirname `readlink -f ${BASH_SOURCE[0]}`)
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
