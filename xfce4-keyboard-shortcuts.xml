@@ -55,12 +55,12 @@
       <property name="&lt;Super&gt;2" type="string" value="firefox"/>
       <property name="&lt;Super&gt;3" type="string" value="thunderbird"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="string" value="xflock4"/>
-      <property name="&lt;Super&gt;F1" type="string" value="setkb es dvorak"/>
       <property name="&lt;Super&gt;F2" type="string" value="setkb us"/>
       <property name="&lt;Super&gt;F3" type="string" value="setkb fr"/>
       <property name="&lt;Alt&gt;F2" type="string" value="synapse"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;h" type="string" value="guake"/>
       <property name="&lt;Super&gt;h" type="string" value="guake"/>
+      <property name="&lt;Super&gt;F1" type="string" value="setkb es dv-om"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
