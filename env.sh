@@ -5,7 +5,8 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
 	PS1='\[\e[38;5;75m\]\u@\h: \w\[\e[38;5;149m\]$(__git_ps1 " -%s-")\[\e[38;5;75m\] $\[\e[0m\] '
 fi
 # seek forward
-stty -ixon
+#stty -ixon
+[[ $- == *i* ]] && stty -ixon
 
 # aliases
 alias o="xdg-open" # open
