@@ -149,7 +149,7 @@ xkb_symbols "dv-om" {
     key <AD07> {[          g, G, dstroke, Dstroke			]};
     key <AD08> {[          c, C, cent, copyright			]};
     key <AD09> {[          h, H, hstroke, Hstroke			]};
-    key <AD10> {[          l, L, sterling				]};
+    key <AD10> {[          l, L, sterling, backslash			]};
     key <AD11> {[ dead_grave, dead_circumflex, bracketleft, dead_caron	]};
     key <AD12> {[       plus, asterisk, bracketright, plusminus		]};
 
