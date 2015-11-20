@@ -1,9 +1,17 @@
-# new PS1 with git
-PS1='\[\e[1;32m\]\u@\h: \w\[\e[38;5;39m\]$(__git_ps1 " -%s-")\[\e[1;32m\] $\[\e[0m\] '
-# check if connected through ssh
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_CONNECTION" ]; then
-	PS1='\[\e[38;5;75m\]\u@\h: \w\[\e[38;5;149m\]$(__git_ps1 " -%s-")\[\e[38;5;75m\] $\[\e[0m\] '
-fi
+# new PS1 with git and conda
+function conda_name {
+    if [ -z "$CONDA_DEFAULT_ENV" ]; then
+        return
+    fi
+    if [[ $# -eq 0 ]] ; then
+        echo "$CONDA_DEFAULT_ENV"
+    else
+        printf "$1" "$CONDA_DEFAULT_ENV"
+    fi
+}
+
+PS1='\[\e[30;1m\]\[\033(0\]lr\[\033(B\](\u@\h)\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(conda_name "conda:%s") \n\[\e[30;1m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
+
 # seek forward
 #stty -ixon
 [[ $- == *i* ]] && stty -ixon
