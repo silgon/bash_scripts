@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MODULES="morse ros"
+MODULES="morse ros conda"
 
 # the use function
 function use {
