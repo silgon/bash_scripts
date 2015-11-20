@@ -3,8 +3,16 @@
 # find out ros base and install path
 source ${BASH_PATH}/conda/conda.sh
 
+# this keeps the variable in path
+# TODO(silgon): this if should be changed to a smarter way
+# seeking for the anaconda path
+if [[ -z $OLD_PATH ]]; then
+    export OLD_PATH=$PATH
+else
+    export PATH=$OLD_PATH
+fi
+
 # call this script with one, two or three arguments of type
-#   first - ros distro, second - worksapce, third - install/devel
 if [ -d $CONDA_INSTALL_PATH ]
 then
     if [ $# -eq 1 ]
@@ -14,6 +22,7 @@ then
     elif [ $# -eq 2 ]
     then
         export PATH=$PATH:$CONDA_INSTALL_PATH/$2/bin
+        export CONDA_DEFAULT_ENV="${2}-default"
         echog "using anaconda $2"
     else
         export PATH=$PATH:$CONDA_BASE_PATH/$2/envs/$3/bin
