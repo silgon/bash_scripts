@@ -1,5 +1,5 @@
 # new PS1 with git and conda
-function conda_name {
+function __conda_ps1 {
     if [ -z "$CONDA_DEFAULT_ENV" ]; then
         return
     fi
@@ -9,8 +9,7 @@ function conda_name {
         printf "$1" "$CONDA_DEFAULT_ENV"
     fi
 }
-
-PS1='\[\e[30;1m\]\[\033(0\]lr\[\033(B\](\u@\h)\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(conda_name "conda:%s") \n\[\e[30;1m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
+PS1='\[\e[30;1m\]\[\033(0\]lr\[\033(B\](\u@\h)\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(__conda_ps1 "conda:%s") \n\[\e[30;1m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
 
 # seek forward
 #stty -ixon
