@@ -21,12 +21,12 @@ then
         echog "using version default anaconda 2"
     elif [ $# -eq 2 ]
     then
-        export PATH=$PATH:$CONDA_INSTALL_PATH/$2/bin
-        export CONDA_DEFAULT_ENV="${2}-default"
+        export PATH=$CONDA_INSTALL_PATH/$2/bin:$PATH
+        export CONDA_DEFAULT_ENV="${2}:root"
         echog "using anaconda $2"
     else
         export PATH=$CONDA_BASE_PATH/$2/envs/$3/bin:$PATH
-        export CONDA_DEFAULT_ENV=$3
+        export CONDA_DEFAULT_ENV="$2:$3"
         echog "using anaconda $2, environment $3"
     fi
 else
