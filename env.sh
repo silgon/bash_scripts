@@ -6,7 +6,7 @@ __conda_ps1() {
     if [[ $# -eq 0 ]] ; then
         echo "$CONDA_DEFAULT_ENV"
     else
-        printf "$1" "$CONDA_DEFAULT_ENV"
+        printf "$1" "$CONDA_VERSION" "$CONDA_DEFAULT_ENV"
     fi
 }
 __ssh_ps1(){
@@ -20,7 +20,7 @@ __ssh_ps1(){
     fi
 }
 
-PS1='\[\e[30;1m\]\[\033(0\]lr\[\033(B\](\u@\h$(__ssh_ps1 ":%s-mode"))\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(__conda_ps1 "conda%s") \n\[\e[30;1m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
+PS1='\[\e[30;1m\]\[\033(0\]lr\[\033(B\](\u@\h$(__ssh_ps1 ":%s-mode"))\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(__conda_ps1 "conda%s:%s") \n\[\e[30;1m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
 
 # seek forward
 #stty -ixon
