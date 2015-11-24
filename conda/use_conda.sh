@@ -22,7 +22,7 @@ then
     elif [ $# -eq 2 ]
     then
         export PATH=$CONDA_INSTALL_PATH/$2/bin:$PATH
-        export CONDA_VERSION="root"
+        export CONDA_VERSION="$2"
         export CONDA_DEFAULT_ENV="root"
         echog "using anaconda $2"
     else
