@@ -19,7 +19,7 @@ sn-compress(){
         printf "USAGE: \$1 file or directory name,\$2 gpg file\n"
         return 0
     fi
-    tar cj $1 | gpg -e -r public_silgon -o $2
+    tar cj $1 | gpg -e -r silgon3200@gmail.com -o $2
 }
 sn-ucompress(){
     if [ $# -lt 1 ]
