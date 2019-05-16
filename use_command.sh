@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-MODULES="morse ros conda"
+MODULES="morse ros conda docker"
 
 # the use function
 function use {
