@@ -7,6 +7,7 @@ cd ~
 # create links
 ln -s ${DIR}/.bashrc
 ln -s ${DIR}/.profile
+ln -s ${DIR}/.inputrc
 ln -s ${DIR}/gitconfig .gitconfig
 ln -s ${DIR}/.octaverc
 ln -s ${DIR}/.screenrc
