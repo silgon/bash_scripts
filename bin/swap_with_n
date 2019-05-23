@@ -1,0 +1,14 @@
+#!/bin/bash
+CURRENT=$(xdotool get_desktop)
+TARGET=$1
+if [ $# -eq 0 ]; then
+    this_file=$(basename "$0")
+    echo "usage: $this_file i # i is the number of desktop to swap"
+    exit 0
+fi
+
+windows_in_current=$(xdotool search --desktop $CURRENT --class ".*")
+windows_in_target=$(xdotool search --desktop $TARGET --class ".*")
+for i in $windows_in_target; do xdotool  set_desktop_for_window $i $CURRENT; done
+for i in $windows_in_current; do xdotool  set_desktop_for_window $i $TARGET; done
+xdotool set_desktop $TARGET
