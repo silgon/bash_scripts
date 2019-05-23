@@ -1,0 +1,24 @@
+#!/bin/bash
+CURRENT_DESKTOP=$(xdotool get_desktop)
+TARGET_DESKTOP=$1
+SAVE_FILE=/tmp/toggle_desktop_to_${TARGET_DESKTOP}
+if [ $# -eq 0 ]; then
+    this_file=$(basename "$0")
+    echo "usage: $this_file i # i is the number of desktop to swap"
+    exit 0
+fi
+
+if [ -f  $SAVE_FILE ]; then
+    SAVED_DESKTOP=$(cat $SAVE_FILE)
+fi
+
+if [ $CURRENT_DESKTOP -eq $SAVED_DESKTOP ]; then
+    GOTO_DESKTOP=$TARGET_DESKTOP
+elif [ $CURRENT_DESKTOP -eq $TARGET_DESKTOP ]; then
+     GOTO_DESKTOP=$SAVED_DESKTOP
+else
+    GOTO_DESKTOP=$TARGET_DESKTOP
+    echo $CURRENT_DESKTOP >$SAVE_FILE
+fi
+
+xdotool set_desktop $GOTO_DESKTOP
