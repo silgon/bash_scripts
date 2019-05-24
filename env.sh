@@ -34,6 +34,9 @@ mdd(){
     cd $1
 }
 
+# nice commands
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 # alias sdcc="sdcc-sdcc"
 alias finished='notify-send FINISHED "your long process has finished" -u critical -i $MY_LOGO'
 alias tmux="TERM=xterm-256color tmux" # tmux with colors
