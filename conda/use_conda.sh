@@ -17,20 +17,17 @@ if [ -d $CONDA_INSTALL_PATH ]
 then
     if [ $# -eq 1 ]
     then
-        export PATH=$CONDA_INSTALL_PATH/2/bin:$PATH
-        echog "using version default anaconda 2"
-    elif [ $# -eq 2 ]
-    then
-        export PATH=$CONDA_INSTALL_PATH/$2/bin:$PATH
-        export CONDA_VERSION="$2"
-        export CONDA_DEFAULT_ENV="root"
-        echog "using anaconda $2"
+        export PATH=$CONDA_INSTALL_PATH/bin:$PATH
+        export CONDA_DEFAULT_ENV="base"
+        echog "using version default anaconda"
     else
-        export PATH=$CONDA_BASE_PATH/$2/envs/$3/bin:$PATH
-        export CONDA_VERSION="$2"
-        export CONDA_DEFAULT_ENV="$3"
+        export PATH=$CONDA_INSTALL_PATH/bin:$PATH
+        export PATH=$CONDA_BASE_PATH/envs/$2/bin:$PATH
+        export CONDA_DEFAULT_ENV="$2"
         echog "using anaconda $2, environment $3"
     fi
+    export CONDA_VERSION=$(python --version  2>&1  | grep -oP "\d\.\d")
+
 else
     echor "no anaconda versions found under $CONDA_INSTALL_PATH"
 fi
