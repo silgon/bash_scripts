@@ -1,0 +1,41 @@
+#!/bin/bash
+if [ $# -lt 2 ]; then
+    this_file=$(basename "$0")
+    echo "usage: $this_file i +/-# i dimension to modify"
+    exit 0
+fi
+
+CURRENT=$(xdotool get_desktop)
+SIZES=(3 3 3)
+N_DIMENSIONS=${#SIZES[@]}
+AXIS=$1
+DIRECTION=$2
+STEPS=()
+CUMULATOR=1
+for i in `seq $(( N_DIMENSIONS - 1 )) -1 0`; do
+    STEPS[$i]=$CUMULATOR
+    CUMULATOR=$(( ${SIZES[i]} * $CUMULATOR ));
+done
+# compute current position
+CURRENT_RESIDUAL=$CURRENT
+POSITION=()
+for i in `seq 0 $(( N_DIMENSIONS - 1 ))`; do
+    POSITION[$i]=$(( $CURRENT_RESIDUAL/${STEPS[$i]} ))
+    CURRENT_RESIDUAL=$(( $CURRENT_RESIDUAL- ${POSITION[$i]}*${STEPS[$i]} ))
+done
+
+# echo ${POSITION[@]}
+# move
+POSITION[$AXIS]=$(( ${POSITION[$AXIS]} $DIRECTION 1 ))
+POSITION[$AXIS]=$(( ${POSITION[$AXIS]}>(${SIZES[$AXIS]}-1)?0: ${POSITION[$AXIS]} ))
+POSITION[$AXIS]=$(( ${POSITION[$AXIS]}<0?(${SIZES[$AXIS]}-1): ${POSITION[$AXIS]} ))
+
+# echo ${POSITION[@]}
+
+# compute target
+TARGET=0
+for i in `seq 0 $(( N_DIMENSIONS - 1 ))`; do
+    TARGET=$(( $TARGET+ ${POSITION[$i]}*${STEPS[$i]} ))
+done
+
+xdotool set_desktop $TARGET
