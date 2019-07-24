@@ -31,11 +31,22 @@ POSITION[$AXIS]=$(( ${POSITION[$AXIS]}>(${SIZES[$AXIS]}-1)?0: ${POSITION[$AXIS]}
 POSITION[$AXIS]=$(( ${POSITION[$AXIS]}<0?(${SIZES[$AXIS]}-1): ${POSITION[$AXIS]} ))
 
 # echo ${POSITION[@]}
-
+# notify-send "Current Position" "`echo ${POSITION[@]}`" -t 1
 # compute target
 TARGET=0
 for i in `seq 0 $(( N_DIMENSIONS - 1 ))`; do
     TARGET=$(( $TARGET+ ${POSITION[$i]}*${STEPS[$i]} ))
 done
 
+
+if [ $# -eq 3 ]; then
+    CURRENT_WINDOW=$(xdotool getactivewindow)
+    xdotool  set_desktop_for_window $CURRENT_WINDOW $TARGET
+    # xdotool windowactivate $CURRENT_WINDOW
+fi
+
 xdotool set_desktop $TARGET
+
+if [ $# -eq 3 ]; then
+    xdotool windowactivate $CURRENT_WINDOW
+fi
