@@ -1,7 +1,8 @@
 #!/bin/bash
 CURRENT_DESKTOP=$(xdotool get_desktop)
 TARGET_DESKTOP=$1
-SAVE_FILE=/tmp/toggle_desktop_to_${TARGET_DESKTOP}
+EXTRA_NAME=$2
+SAVE_FILE=/tmp/toggle_desktop_to_${TARGET_DESKTOP}_${EXTRA_NAME}
 if [ $# -eq 0 ]; then
     this_file=$(basename "$0")
     echo "usage: $this_file i # i is the number of desktop to swap"
