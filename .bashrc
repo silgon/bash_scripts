@@ -35,3 +35,5 @@ if [ -f $BASH_PATH_PRIV/env.sh ]; then
 if [ -f $HOME/.bashrc2 ]; then
 	. $HOME/.bashrc2
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

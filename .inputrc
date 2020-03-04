@@ -1,2 +1,3 @@
 "\el":menu-complete
 "\eL":menu-complete-backward
+set show-all-if-ambiguous on

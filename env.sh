@@ -37,6 +37,7 @@ mdd(){
 # nice commands
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
+alias copyimg='xclip -selection clipboard -t image/png -i'
 # alias sdcc="sdcc-sdcc"
 alias finished='notify-send FINISHED "your long process has finished" -u critical -i $MY_LOGO'
 alias tmux="TERM=xterm-256color tmux" # tmux with colors
