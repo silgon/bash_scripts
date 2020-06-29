@@ -41,6 +41,7 @@ alias copyimg='xclip -selection clipboard -t image/png -i'
 # alias sdcc="sdcc-sdcc"
 alias finished='notify-send FINISHED "your long process has finished" -u critical -i $MY_LOGO'
 alias tmux="TERM=xterm-256color tmux" # tmux with colors
+alias r="ranger"
 # opencv
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
@@ -49,6 +50,21 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 # export HISTCONTROL=ignoredups:erasedups  
 # # append history entries..
 # shopt -s histappend
+HISTSIZE=-1
+HISTFILESIZE=-1
+## Dictionaries
+alias ded="dict -d fd-eng-deu"
+alias dde="dict -d fd-deu-eng"
+alias def="dict -d fd-eng-fra"
+alias dfe="dict -d fd-fra-eng"
+alias tsed="trans en:de"
+alias tsde="trans de:en"
+alias tsef="trans en:fr"
+alias tsfe="trans fr:en"
+
 
 # # After each command, save and reload history
 # export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+pdflatex(){ 
+    docker run -u $UID -v $PWD:/ws -w /ws --rm mirisbowring/texlive_ctan_full:2019 pdflatex $@
+}
