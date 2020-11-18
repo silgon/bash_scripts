@@ -143,6 +143,66 @@ xkb_symbols "dv-om" {
     key <AD01> {[     period, colon, less, bracketleft			]};
     key <AD02> {[      comma, semicolon, greater, bracketright		]};
     key <AD03> {[     ntilde, Ntilde, lstroke, Lstroke			]};
+    key <AD04> {[          p, P, Greek_pi,      Greek_PI	]};
+    key <AD05> {[          y, Y, Greek_upsilon,  Greek_UPSILON]};
+    key <AD06> {[          f, F, Greek_phi,      Greek_PHI	]};
+    key <AD07> {[          g, G, Greek_gamma,    Greek_GAMMA]};
+    key <AD08> {[          c, C, Greek_psi,      Greek_PSI	]};
+    key <AD09> {[          h, H, Greek_eta,      Greek_ETA	]};
+    key <AD10> {[          l, L, Greek_lamda,    Greek_LAMDA	]};
+    key <AD11> {[ dead_grave, dead_circumflex, bracketleft, dead_caron	]};
+    key <AD12> {[       plus, asterisk, bracketright, plusminus		]};
+
+    key <AC01> {[          a, A, Greek_alpha,    Greek_ALPHA]};
+    key <AC02> {[          o, O, Greek_omicron,  Greek_OMICRON]};
+    key <AC03> {[          e, E, Greek_epsilon,  Greek_EPSILON	]};
+    key <AC04> {[          u, U, Greek_theta,    Greek_THETA]};
+    key <AC05> {[          i, I, Greek_iota,     Greek_IOTA	]};
+    key <AC06> {[          d, D, Greek_delta,    Greek_DELTA]};
+    key <AC07> {[          r, R, Greek_rho,      Greek_RHO	]};
+    key <AC08> {[          t, T, Greek_tau,      Greek_TAU	]};
+    key <AC09> {[          n, N, Greek_nu,       Greek_NU		]};
+    key <AC10> {[          s, S, Greek_sigma,    Greek_SIGMA	]};
+    key <AC11> {[ dead_acute, dead_diaeresis, braceleft, dead_tilde	]};
+    key <BKSL> {[   ccedilla, Ccedilla, braceright, dead_cedilla	]};
+
+    key <LSGT> {[       less, greater, guillemotleft, guillemotright	]};
+    key <AB01> {[      minus, underscore, hyphen, macron		]};
+    key <AB02> {[          q, Q, oe, OE				]};
+    key <AB03> {[          j, J, Greek_xi,       Greek_XI		]};
+    key <AB04> {[          k, K, Greek_kappa,    Greek_KAPPA	]};
+    key <AB05> {[          x, X, Greek_chi,      Greek_CHI	]};
+    key <AB06> {[          b, B, Greek_beta,     Greek_BETA		]};
+    key <AB07> {[          m, M, Greek_mu,       Greek_MU	]};
+    key <AB08> {[          w, W						]};
+    key <AB09> {[          v, V, Greek_omega,    Greek_OMEGA]};
+    key <AB10> {[          z, Z, Greek_zeta,     Greek_ZETA	]};
+
+    include "level3(ralt_switch)"
+};
+
+xkb_symbols "dv-om-old" {
+
+    name[Group1]="Spanish (Dvorak-Omar)";
+
+    // Alphanumeric section
+    key <TLDE> {[  masculine, ordfeminine, backslash, degree		]};
+    key <AE01> {[          1, exclam, bar, onesuperior			]};
+    key <AE02> {[          2, quotedbl, at, twosuperior			]};
+    key <AE03> {[          3, periodcentered, numbersign, threesuperior	]};
+    key <AE04> {[          4, dollar, asciitilde, onequarter		]};
+    key <AE05> {[          5, percent, brokenbar, fiveeighths		]};
+    key <AE06> {[          6, ampersand, notsign, threequarters		]};
+    key <AE07> {[          7, slash, onehalf, seveneighths		]};
+    key <AE08> {[          8, parenleft, oneeighth, threeeighths	]};
+    key <AE09> {[          9, parenright, asciicircum			]};
+    key <AE10> {[          0, equal, grave, dead_doubleacute		]};
+    key <AE11> {[ apostrophe, question, dead_macron, dead_ogonek	]};
+    key <AE12> {[ exclamdown, questiondown, dead_breve, dead_abovedot	]};
+
+    key <AD01> {[     period, colon, less, bracketleft			]};
+    key <AD02> {[      comma, semicolon, greater, bracketright		]};
+    key <AD03> {[     ntilde, Ntilde, lstroke, Lstroke			]};
     key <AD04> {[          p, P, paragraph, braceleft			]};
     key <AD05> {[          y, Y, yen, braceright			]};
     key <AD06> {[          f, F, tslash, Tslash				]};
