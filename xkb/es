@@ -167,8 +167,8 @@ xkb_symbols "dv-om" {
     key <BKSL> {[   ccedilla, Ccedilla, braceright, dead_cedilla	]};
 
     key <LSGT> {[       less, greater, guillemotleft, guillemotright	]};
-    key <AB01> {[      minus, underscore, hyphen, macron		]};
-    key <AB02> {[          q, Q, oe, OE				]};
+    key <AB01> {[      minus, underscore, braceleft 		]};
+    key <AB02> {[          q, Q, braceright				]};
     key <AB03> {[          j, J, Greek_xi,       Greek_XI		]};
     key <AB04> {[          k, K, Greek_kappa,    Greek_KAPPA	]};
     key <AB05> {[          x, X, Greek_chi,      Greek_CHI	]};
