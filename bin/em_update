@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+curl https://raw.githubusercontent.com/muan/emojilib/v3.0.11/dist/emoji-en-US.json \
+  | jq --raw-output '. | to_entries | .[] | .key + " " + (.value | join(" ") | sub("_"; " "; "g"))' \
+  > ~/.emojis.txt
+

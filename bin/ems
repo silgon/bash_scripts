@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+function f(){
+	cat ~/.emojis.txt | awk "/($1)/ {print \$1}"
+}
+select i in $(f $1); do echo -n $i|xclip -selection clipboard; echo "$i copied"; break; done
