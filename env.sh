@@ -69,3 +69,7 @@ alias tsfe="trans fr:en"
 pdflatex(){ 
     docker run -u $UID -v $PWD:/ws -w /ws --rm mirisbowring/texlive_ctan_full:2019 pdflatex $@
 }
+finishedmail(){
+ echo "Your process has fishied" | mail -s "Process Finished"  me
+}
+
