@@ -19,9 +19,22 @@ __ssh_ps1(){
         printf "$1" "ssh"
     fi
 }
+__slurm_ps1(){
+    if [ -z "$SLURM_NODEID" ]; then
+        return
+    fi
+    if [[ $# -eq 0 ]] ; then
+        echo "slurm"
+    else
+        printf "$1" "slurm"
+    fi
+}
+
+
 
 # PS1='\[\e[30;1m\]\[\033(0\]lr\[\033(B\](\u@\h$(__ssh_ps1 ":%s-mode"))\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(__conda_ps1 "conda%s:%s") \n\[\e[30;1m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
-PS1='\[\e[0;37m\]\[\033(0\]lr\[\033(B\](\u@\h$(__ssh_ps1 ":%s-mode"))\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(__conda_ps1 "conda:%s") \n\[\e[0;37m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
+# PS1='\[\e[0;37m\]\[\033(0\]lr\[\033(B\](\u@\h$(__ssh_ps1 ":%s-mode"))\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(__conda_ps1 "conda:%s") \n\[\e[0;37m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
+PS1='\[\e[0;37m\]\[\033(0\]lr\[\033(B\](\u@\h$(__ssh_ps1 ":%s-mode")$(__slurm_ps1 ":%s-mode"))\[\e[38;5;39m\] $(__git_ps1 "git:%s")\[\e[38;5;35m\] $(__conda_ps1 "conda:%s") \n\[\e[0;37m\]\[\033(0\]m\[\033(B\] \[\e[1;32m\]\w $\[\e[0m\] '
 
 # seek forward
 #stty -ixon
