@@ -79,9 +79,9 @@ alias tsfe="trans fr:en"
 
 # # After each command, save and reload history
 # export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-pdflatex(){ 
-    docker run -u $UID -v $PWD:/ws -w /ws --rm mirisbowring/texlive_ctan_full:2019 pdflatex $@
-}
+#pdflatex(){ 
+#    docker run -u $UID -v $PWD:/ws -w /ws --rm mirisbowring/texlive_ctan_full:2019 pdflatex $@
+#}
 finishedmail(){
  echo "Your process has fishied" | mail -s "Process Finished"  me
 }
