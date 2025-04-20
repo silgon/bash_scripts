@@ -1,16 +1,28 @@
 #!/bin/bash
 
-sn-replacestr(){ #@USAGE: value to find
-    if [ $# -lt 3 ] 
-    then
-        printf "USAGE: \$1 value to find,\$2 replace value,\$3 directory\n"
+sn-replacestr() { #@USAGE: value to find
+    if [ $# -lt 3 ]; then
+        printf "USAGE: \$1 value to find,\$2 replace value,\$3 directory,\$4 [--include pattern]\n"
         return 0
     fi
-    for i in `grep -Rl $1 $3` 
-    do 
-        sed -i "s/$1/$2/g" $i
-        printf "%s \n" $i
-    done
+    local find_value="$1"
+    local replace_value="$2"
+    local directory="$3"
+    local include_pattern=""
+    if [ $# -eq 4 ] && [[ "$4" == --include* ]]; then
+        include_pattern="${4#--include=}"
+    fi
+    if [ -n "$include_pattern" ]; then
+        for i in $(grep -Rl --include="$include_pattern" "$find_value" "$directory"); do
+            sed -i "s/$find_value/$replace_value/g" "$i"
+            printf "%s \n" "$i"
+        done
+    else
+        for i in $(grep -Rl "$find_value" "$directory"); do
+            sed -i "s/$find_value/$replace_value/g" "$i"
+            printf "%s \n" "$i"
+        done
+    fi
 }
 
 sn-compress(){
